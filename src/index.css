@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-charcoal: #151515;
+    --color-rich-black: #090909;
+    --color-warm-white: #F2F0EA;
+    --color-bronze: #A78355;
+    --color-soft-grey: #9E9D99;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #090909;
+    color: #F2F0EA;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #090909;
+    color: #F2F0EA;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::selection {
+    background-color: #A78355;
+    color: #090909;
+  }
+
+  /* Refined luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090909;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222222;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A78355;
+  }
+}
+
+/* Editorial typography utilities */
+.font-editorial-heading {
+  font-family: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.font-editorial-body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-modern {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Subtle bronze gradient border */
+.border-bronze-gradient {
+  border-image: linear-gradient(to right, rgba(167, 131, 85, 0.4), rgba(167, 131, 85, 0.05)) 1;
+}
+
+/* Luxury card hover glow */
+.luxury-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.luxury-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 131, 85, 0.4);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(167, 131, 85, 0.12);
+}
