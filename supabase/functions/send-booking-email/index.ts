@@ -24,10 +24,18 @@ Deno.serve(async (req: Request) => {
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
-    const resendApiKey = Deno.env.get("RESEND_API_KEY") ?? "";
-    const emailFrom = Deno.env.get("EMAIL_FROM") || "CAVEMEN Grooming Lounge <onboarding@resend.dev>";
+    let resendApiKey = Deno.env.get("RESEND_API_KEY") ?? "";
+    const emailFrom = Deno.env.get("EMAIL_FROM") || "CAVEMEN Concierge <onboarding@resend.dev>";
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // If RESEND_API_KEY is not in env, retrieve from Supabase Vault
+    if (!resendApiKey) {
+      const { data: vaultKey } = await supabase.rpc("get_resend_api_key");
+      if (vaultKey) {
+        resendApiKey = vaultKey;
+      }
+    }
 
     // 1. Fetch booking details
     const { data: booking, error: bookingErr } = await supabase
