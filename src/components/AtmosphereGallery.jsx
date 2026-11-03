@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Eye, Play, X, Info, Maximize2 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-export default function AtmosphereGallery() {
+export default function AtmosphereGallery({ content }) {
   const [activeMedia, setActiveMedia] = useState(null);
 
   return (
@@ -23,11 +23,11 @@ export default function AtmosphereGallery() {
           </div>
 
           <h2 className="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cavemen-offwhite uppercase">
-            STEP INTO THE EXPERIENCE.
+            {content?.title || 'STEP INTO THE EXPERIENCE.'}
           </h2>
 
           <p className="font-sans text-sm sm:text-base text-cavemen-softgrey font-light leading-relaxed">
-            Dark architectural finishes, custom leather seating, warm amber lighting and an atmosphere tailored for the modern man.
+            {content?.subtitle || 'Dark architectural finishes, custom leather seating, warm amber lighting and an atmosphere tailored for the modern man.'}
           </p>
         </div>
 

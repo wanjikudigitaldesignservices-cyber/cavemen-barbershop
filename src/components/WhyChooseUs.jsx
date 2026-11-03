@@ -2,7 +2,7 @@ import React from 'react';
 import { Target, Award, Armchair, Repeat } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ content }) {
   const iconMap = {
     "01": Target,
     "02": Award,
@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
           </div>
 
           <h2 className="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cavemen-offwhite uppercase">
-            BUILT AROUND YOUR STANDARD.
+            {content?.title || 'BUILT AROUND YOUR STANDARD.'}
           </h2>
 
           <p className="font-sans text-sm sm:text-base text-cavemen-softgrey font-light leading-relaxed">

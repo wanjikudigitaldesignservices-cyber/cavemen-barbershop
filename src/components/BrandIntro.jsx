@@ -2,7 +2,7 @@ import React from 'react';
 import { Scissors, ShieldCheck, Coffee, Sparkles } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-export default function BrandIntro({ onOpenBooking }) {
+export default function BrandIntro({ onOpenBooking, content }) {
   return (
     <section id="about" className="relative py-24 sm:py-32 bg-cavemen-charcoal/95 border-t border-b border-white/5 overflow-hidden">
       
@@ -21,7 +21,7 @@ export default function BrandIntro({ onOpenBooking }) {
 
         {/* Section Heading */}
         <h2 className="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cavemen-offwhite uppercase mb-16 max-w-3xl">
-          THE CAVEMEN EXPERIENCE
+          {content?.title || 'THE CAVEMEN EXPERIENCE'}
         </h2>
 
         {/* Sophisticated Two-Column Editorial Layout */}
@@ -33,7 +33,7 @@ export default function BrandIntro({ onOpenBooking }) {
             {/* Primary Editorial Quote / Description */}
             <div className="relative pl-6 border-l-2 border-cavemen-bronze/70">
               <p className="font-editorial text-2xl sm:text-3xl text-cavemen-offwhite leading-relaxed font-light italic">
-                “Great grooming is more than looking good. It's about the confidence that comes with taking care of yourself. At CAVEMEN, we bring together professional barbering, attention to detail and an atmosphere where every visit feels worthwhile.”
+                “{content?.content || "Great grooming is more than looking good. It's about the confidence that comes with taking care of yourself. At CAVEMEN, we bring together professional barbering, attention to detail and an atmosphere where every visit feels worthwhile."}”
               </p>
             </div>
 

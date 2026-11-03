@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, Phone, Mail, Clock, MessageSquare, ArrowUp, Scissors } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-export default function Footer({ onOpenBooking }) {
+export default function Footer({ onOpenBooking, onOpenAuth, onOpenAdmin }) {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -123,6 +123,15 @@ export default function Footer({ onOpenBooking }) {
                 >
                   Book Appointment
                 </a>
+              </li>
+              <li className="pt-2 border-t border-white/5">
+                <button
+                  onClick={onOpenAuth}
+                  className="text-cavemen-bronze/90 hover:text-cavemen-bronze transition-colors flex items-center space-x-1.5"
+                >
+                  <span>Staff & Concierge Portal</span>
+                  <span className="text-[10px] font-mono">→</span>
+                </button>
               </li>
             </ul>
           </div>

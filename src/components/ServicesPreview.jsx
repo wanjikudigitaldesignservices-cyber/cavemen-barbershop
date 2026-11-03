@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Clock, ArrowUpRight, Scissors, Sparkles } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-export default function ServicesPreview({ onOpenBooking, onOpenAllServices }) {
+export default function ServicesPreview({ onOpenBooking, onOpenAllServices, content }) {
   return (
     <section id="services" className="relative py-24 sm:py-32 bg-cavemen-black">
       
@@ -22,11 +22,11 @@ export default function ServicesPreview({ onOpenBooking, onOpenAllServices }) {
             </div>
             
             <h2 className="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cavemen-offwhite uppercase">
-              THE ART OF GROOMING
+              {content?.title || 'THE ART OF GROOMING'}
             </h2>
             
             <p className="font-sans text-sm sm:text-base text-cavemen-softgrey max-w-xl font-light">
-              Each service is executed with calculated precision, individualized consultation, and an unhurried dedication to your look.
+              {content?.subtitle || 'Each service is executed with calculated precision, individualized consultation, and an unhurried dedication to your look.'}
             </p>
           </div>
 

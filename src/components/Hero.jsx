@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Play, Pause, MapPin, ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-export default function Hero({ onOpenBooking }) {
+export default function Hero({ onOpenBooking, content, businessSettings }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -82,17 +82,19 @@ export default function Hero({ onOpenBooking }) {
         <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 mb-8 rounded-full border border-cavemen-bronze/40 bg-cavemen-black/60 backdrop-blur-md text-cavemen-offwhite/90 text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase font-sans max-w-[92vw] text-center">
           <MapPin className="w-3.5 h-3.5 text-cavemen-bronze shrink-0" />
           <span className="text-cavemen-bronze font-semibold">Location:</span>
-          <span className="text-cavemen-offwhite/80 truncate">{siteConfig.contact.address}</span>
+          <span className="text-cavemen-offwhite/80 truncate">
+            {businessSettings?.address || siteConfig.contact.address}
+          </span>
         </div>
 
         {/* Editorial Pre-Heading / Tagline */}
         <p className="font-sans text-xs sm:text-sm uppercase tracking-[0.35em] text-cavemen-bronze font-medium mb-4">
-          {siteConfig.brand.tagline}
+          {content?.subtitle || siteConfig.brand.tagline}
         </p>
 
         {/* Main Headline */}
         <h1 className="font-cinzel text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[0.08em] sm:tracking-[0.12em] text-cavemen-offwhite uppercase leading-[1.05] sm:leading-[1.1] mb-6 drop-shadow-2xl max-w-4xl">
-          OWN YOUR STYLE.
+          {content?.title || 'OWN YOUR STYLE.'}
         </h1>
 
         {/* Divider with Bronze Monogram Accent */}
@@ -104,7 +106,7 @@ export default function Hero({ onOpenBooking }) {
 
         {/* Supporting Text */}
         <p className="font-sans text-base sm:text-lg md:text-xl text-cavemen-offwhite/85 font-light tracking-wide max-w-2xl mx-auto mt-4 mb-10 leading-relaxed">
-          Precision grooming. Exceptional service. A space designed for the modern man.
+          {content?.content || 'Precision grooming. Exceptional service. A space designed for the modern man.'}
         </p>
 
         {/* Action CTAs */}

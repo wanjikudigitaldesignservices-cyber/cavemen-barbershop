@@ -2,13 +2,14 @@ import React from 'react';
 import { Calendar, MessageSquare, Clock, MapPin, Sparkles, ArrowRight } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-export default function BookingSection({ onOpenBooking }) {
-  const hasWhatsapp = Boolean(siteConfig.booking.whatsappNumber);
+export default function BookingSection({ onOpenBooking, businessSettings }) {
+  const whatsappNum = businessSettings?.whatsapp_number || siteConfig.booking.whatsappNumber;
+  const hasWhatsapp = Boolean(whatsappNum);
 
   const handleDirectWhatsapp = () => {
     if (hasWhatsapp) {
       const message = encodeURIComponent(siteConfig.booking.defaultBookingMessage);
-      window.open(`https://wa.me/${siteConfig.booking.whatsappNumber}?text=${message}`, '_blank');
+      window.open(`https://wa.me/${whatsappNum}?text=${message}`, '_blank');
     } else {
       onOpenBooking();
     }
